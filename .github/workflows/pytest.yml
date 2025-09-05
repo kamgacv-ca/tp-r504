@@ -1,26 +1,36 @@
 name: tests unitaires
+
 on: [push]
+
 jobs:
-	test1:
-		runs-on: ubuntu-latest
-		strategy:
-			matrix:
-				python-version: ["3.8", "3.10"]
-		steps:
-		- uses: actions/checkout@v3
-		- name: Set up Python for Demo
-		 uses: actions/setup-python@v4
-		with:
-			python-version: ${{matrix.python-version }}
 
-		- name: installation pytest
-		 run: pip3 install pytest
+  test1:
+    runs-on: ubuntu-latest
 
-		- name: Afficher le nom de la branche
-		run: echo "Nom de la branche: ${{ github.ref }}"
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.10"]
 
-		- name: Afficher l'OS du runner
-		run: echo "OS runner: ${{ runner.os }}"
+    steps:
+      - uses: actions/checkout@v3
 
-		- name: Run tests
-		run: pytest TP1/test.py
+      - name: Set up Python for Demo
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Afficher la version de Python
+        run: python --version
+
+      - name: Installation de pytest
+        run: pip install pytest
+
+      - name: Afficher le nom de la branche
+        run: echo "Nom de la branche: ${{ github.ref_name }}"
+
+      - name: Afficher l'OS du runner
+        run: echo "OS runner: ${{ runner.os }}"
+
+      - name: Run tests
+        run: pytest TP1/test.py
+
