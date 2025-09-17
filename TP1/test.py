@@ -20,8 +20,12 @@ def operation():
 	assert f.puissance(0,5)==0
 	assert f.puissance(0,100)==0
 
-def test_negative_raises():
-	with pytest.raises(ValueError):
+def test_exc_1():
+	with pytest.raises(<TYPE-EXCEPTION>):
+		CODE-QUI-DOIT-LANCER-LEXCEPTION
+
+def test_exc_1_raises():
+	with pytest.raises(Exception):
 		assert f.puissance(0,-1)
 		assert f.puissance(0,-5)
 
