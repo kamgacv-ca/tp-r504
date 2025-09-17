@@ -1,0 +1,5 @@
+FROM debian:11
+RUN apt-get update && apt-get upgrade && apt-get install -y build-essential pkg-config python-dev python3-pip default-libmysqlclient-dev
+COPY app_1.py /srv/
+COPY index.html /srv/templates
+CMD ["flask","--app","/srv/app_1","run","--host=0.0.0.0"]
