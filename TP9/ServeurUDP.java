@@ -2,7 +2,8 @@ import java.io.*;
 import java.net.*;
 
 public class ServeurUDP {
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws Exception
+{
 
             // Créer un DatagramSocket sur le port 1234
             DatagramSocket sock = new DatagramSocket(1234);
@@ -18,12 +19,15 @@ public class ServeurUDP {
 
                 // Attendre la réception des données
                 sock.receive(packet);
+                String str = new String(packet.getData(), 0, packet.getLength());
+                System.out.println("Reçu:"+str);
+                sock.send(packet);
 
                 // Convertir les données reçues en chaîne de caractères
-                String str = new String(packet.getData());
+                String str2 = new String(packet.getData());
 
                 // Afficher les données reçues
-                System.out.println("str = " + str);
+                System.out.println("str = " + str2);
             }
 }
 

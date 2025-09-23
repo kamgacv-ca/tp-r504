@@ -1,8 +1,10 @@
 import java.io.*;
 import java.net.*;
 
-public class ClientUDP {
-    public static void main(String[] args) {
+public class ClientUDP
+{
+    public static void main(String[] args) throws Exception
+	{
         String s = "Hello World";
         byte[] data = s.getBytes();
         // Obtenir l'adresse locale (ce code peut lancer une exception)
@@ -14,6 +16,8 @@ public class ClientUDP {
         DatagramSocket sock = new DatagramSocket();
         sock.send(packet);
         // Fermer le socket après l'envoi
+        sock.receive(packet);
+        System.out.println("reception=" + addr.getHostName());
         sock.close();
     }
 }
