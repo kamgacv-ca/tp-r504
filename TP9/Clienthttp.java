@@ -5,7 +5,9 @@ public class Clienthttp
 {
     public static void main(String[] args) throws Exception
     {
-        
+        try
+{
+            Socket socket = new Socket  (args[0],80)
             OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
             InputStreamReader isw = new InputStreamReader(socket.getInputStream());
 
@@ -26,6 +28,12 @@ public class Clienthttp
             bufOut.close();
             socket.close();
 
+          catch ( Exception ex )
+    {
+           System.out.println ( "Erreur!" ) ;
+           ex.printStackTrace ( ) ;
+}
+          
       
     }
 }
