@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","nfs_version":"4","nfs_udp":false,"guestpath":"/vagrant","hostpath":"/home/fi25-kamga/tp-r504/TP5/vag1","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
