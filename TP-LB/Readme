@@ -1,0 +1,10 @@
+TP: Mise en place d’un "Load Balancing"
+
+Pourquoi le "load-balancing" ne semble pas fonctionner avec un navigateur, alors qu’on voit bien le
+fonctionnement avec curl ? Les navigateurs conservent le cache HTTP ou la connexion persistante (keep-alive), donc toutes les requêtes dans la même session vont souvent vers le même serveur. curl ouvre une nouvelle connexion à chaque requête, ce qui montre correctement le round-robin.
+
+if var = $1 
+	for ((i=0;i<200;i++));do curl localhost:83;done: 
+		else: 
+	var =+1
+	
