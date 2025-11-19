@@ -1,11 +1,10 @@
 from flask import Flask
-
+import os 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'serveur 2\n'
+    return (os.environ.get('HOSTNAME')+"2\n")
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
-
